@@ -10,28 +10,27 @@ function router(nav){
       title: 'Harry Potter',
       author: 'JK Rowling',
       genre: 'Fantasy',
-      img: "h.jpg"
+      img: "harrypotter.jpg"
     },
     {
       title: 'Percy Jacksson',
       author: 'Rick Riordan',
       genre: 'Fantasy',
-      img: "p.jpg"
+      img: "percyjackson.jpg"
     },
     {
       title: 'Stormlight Archives',
       author: 'Brandon Sanderson',
       genre: 'Fantasy',
-      img: "s.jpg"
+      img: "stormlight.jpg"
     }
   ];
   
   // For books.ejs is the root for booksRouter
   booksRouter.get('/',function(req,res){
     res.render("books",{
-      // nav: [{link:'/books',name:'Books'},{link:'/authors',name:'Authors'}],
       nav,
-      title: 'Library',
+      title: 'Library | Books',
       books
     })
   });
@@ -41,9 +40,8 @@ function router(nav){
   booksRouter.get('/:id',function(req,res){
     const id = req.params.id;
     res.render("book",{
-      // nav: [{link:'/books',name:'Books'},{link:'/authors',name:'Authors'}],
       nav,
-      title: 'Library',
+      title: 'Library | ' + books[id].title,
       book: books[id]
     })
   })
